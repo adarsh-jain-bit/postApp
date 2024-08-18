@@ -25,24 +25,23 @@ const Cards = () => {
     } else if (currentPage > Math.ceil(post.length / cardsPerPage)) {
       setCurrentPage(Math.ceil(post.length / cardsPerPage));
     }
-  }, [post]);
-  let apikey = process.env.REACT_APP_APIKEY || "3761935a91164993982086a1012b546a";
+  }, [post ]);
+
+  let apikey = process.env.REACT_APP_APIKEY || "bbccba1fb1594edd8f29cf23a991ed29";
 
   const fetchData = async () => {
     setLoading(true);
     try {
       setTimeout(async () => {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=tesla&from=2024-07-17&sortBy=publishedAt&apiKey=${apikey}`
+          `https://newsapi.org/v2/everything?q=tesla&from=2024-07-18&sortBy=publishedAt&apiKey=${apikey}`
         );
-        const data = await response.json();
-        if (data.status === 'ok') {
-            const posts =  data.articles.map(article => ({ ...article, id: uuidv4() }));
+        const data1 = await response.json();
+        console.log(data1)
+       const posts =  data1.articles.map(article => ({ ...article, id: uuidv4() }));
+       console.log(posts)
           dispatch(allPost(posts));
           setError('');
-        } else {
-          setError('Failed to fetch data');
-        }
         setLoading(false);
       }, 2000);
     } catch (err) {

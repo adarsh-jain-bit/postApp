@@ -37,7 +37,7 @@ export default function SingleCard({ data }) {
                 <CardMedia
                   component="img"
                   height="140"
-                  image={urlToImage || '/assets/img1'}
+                  image={urlToImage || '/assets/img1.png'}
                   alt={title || 'News Image'}
                   sx={{ paddingBottom: '8px' }}
                 />
