@@ -27,14 +27,14 @@ const Cards = () => {
     }
   }, [post ]);
 
-  let apikey = process.env.REACT_APP_APIKEY || "a61bf6f59daa4ae8b02d28aafa86c767";
+
 
   const fetchData = async () => {
     setLoading(true);
     try {
       setTimeout(async () => {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=tesla&from=2024-07-21&sortBy=publishedAt&apiKey=${apikey}`
+          `https://raw.githubusercontent.com/SauravKanchan/NewsAPI/master/everything/bbc-news.json`
         );
         const data1 = await response.json();
         console.log(data1)

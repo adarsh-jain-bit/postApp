@@ -26,7 +26,7 @@ export default function SingleCard({ data }) {
 
   return (
     <Grid container spacing={2}>
-      {data.map(({ id,author, content, title, urlToImage, publishedAt, url }) => (
+      {data.map(({ id,source, content, title, urlToImage, publishedAt, url }) => (
         <Grid item xs={12} sm={6} md={4} key={id}>
           <Card sx={{ maxWidth: 345, marginBottom: 3, position: 'relative' }}>
             <Box sx={{ position: 'absolute', right: '0px', top: '0px', zIndex: 10 }}>
@@ -55,7 +55,7 @@ export default function SingleCard({ data }) {
                 <Divider sx={{ marginY: 1 }} />
                 <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                   <Typography variant="subtitle2" component="div" sx={{ marginTop: 1 }}>
-                    {author?.split(',')[0] || 'Unknown Author'}
+                    {source.name || 'Unknown Author'}
                   </Typography>
                   <Typography variant="caption" component="div" color="text.secondary">
                     {publishedAt ? formatDate(publishedAt) : 'Unknown Date'}
